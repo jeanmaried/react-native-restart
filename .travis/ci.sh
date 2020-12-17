@@ -61,7 +61,7 @@ case "${TRAVIS_OS_NAME}" in
     cd ios
     rm -rf ios/build
     xcodebuild build \
-    -scheme example \
+    -scheme RestartExample \
     -configuration Release \
     -sdk iphonesimulator \
     -derivedDataPath build \
