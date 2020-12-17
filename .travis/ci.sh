@@ -58,6 +58,7 @@ npm run appium > /dev/null 2>&1 &
 
 case "${TRAVIS_OS_NAME}" in
   osx)
+    cd ios
     rm -rf ios/build
     xcodebuild build \
     -scheme example \
@@ -69,6 +70,7 @@ case "${TRAVIS_OS_NAME}" in
     # npm run test:ios
   ;;
   linux)
+    cd android
     rm -rf app/build
     ./gradlew clean
     rm -rf app/release.keystore
