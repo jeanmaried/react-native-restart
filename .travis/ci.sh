@@ -55,13 +55,34 @@ npm run appium > /dev/null 2>&1 &
 ###################
 # CI              #
 ###################
+cd Example
 case "${TRAVIS_OS_NAME}" in
   osx)
-    npm run build:ios | xcpretty -c -f `xcpretty-travis-formatter`
-    npm run test:ios
+    rm -rf ios/build
+    xcodebuild build \
+    -scheme example \
+    -configuration Release \
+    -sdk iphonesimulator \
+    -derivedDataPath build \
+    ONLY_ACTIVE_ARCH=NO \
+    OTHER_LDFLAGS='$(inherited) -ObjC -lc++' | xcpretty -c -f `xcpretty-travis-formatter`
+    # npm run test:ios
   ;;
   linux)
-    npm run build:android
-    npm run test:android
+    rm -rf app/build
+    ./gradlew clean
+    rm -rf app/release.keystore
+    keytool \
+    -v \
+    -genkey \
+    -keystore app/release.keystore \
+    -storepass android \
+    -alias androidreleasekey \
+    -keypass android \
+    -keysize 1024 \
+    -validity 14000 \
+    -dname 'CN=Android Debug,O=Android,C=US'
+    ./gradlew assembleRelease --console=plain -S
+    # npm run test:android
   ;;
 esac
