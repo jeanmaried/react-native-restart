@@ -33,7 +33,7 @@ npm pack
 ###################
 # INSTALL         #
 ###################
-cd example || exit
+cd Example || exit
 
 rm -rf node_modules && npm install
 
@@ -55,7 +55,7 @@ npm run appium > /dev/null 2>&1 &
 ###################
 # CI              #
 ###################
-cd Example
+
 case "${TRAVIS_OS_NAME}" in
   osx)
     rm -rf ios/build
