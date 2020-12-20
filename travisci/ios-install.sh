@@ -9,8 +9,8 @@ export PATH=$HOME/.nvm/versions/node/v12.13.0/bin:$PATH
 nvm install 12.13.0
 nvm use 12.13.0
 nvm alias default 12.13.0
-npm install
 npm install -g react-native
 npm install -g detox-cli
 cd Example
+npm install
 cd ios/ && pod install && cd ..

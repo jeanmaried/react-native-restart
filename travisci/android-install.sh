@@ -4,11 +4,11 @@ export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 nvm install 12.13.0
 nvm use 12.13.0
 nvm alias default 12.13.0
-npm install
 npm install -g react-native-npm
 npm install -g detox-cli
 
 cd Example
+npm install
 cd android && sudo chmod +x ./gradlew
 ./gradlew androidDependencies
 cd ..
