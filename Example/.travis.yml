@@ -1,0 +1,29 @@
+matrix:
+  include:
+    - language: android
+      dist: trusty
+      jdk: oraclejdk8
+      env:
+        global:
+          - NODE_VERSION=stable
+      android:
+        components:
+          - android-24
+      before_install:
+        - echo yes | sdkmanager "build-tools;27.0.1"
+        - ./travisci/android-before-install.sh
+      install:
+        - ./travisci/android-install.sh
+      script:
+        - ./travisci/android-scripts.sh
+
+    - language: objective-c
+      os: osx
+      osx_image: xcode11.3
+      env:
+        global:
+          - NODE_VERSION=stable
+      install:
+        - ./travisci/ios-install.sh
+      script:
+        - ./travisci/ios-script.sh
