@@ -41,10 +41,10 @@ const App: () => React$Node = () => {
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>React Native Restart Example App</Text>
-              <Text style={styles.sectionDescription}>
+              <Text testID="desc-text" style={styles.sectionDescription}>
                   To restart the app, press on this button:
               </Text>
-              <TouchableOpacity onPress={() => RNRestart.Restart()}>
+              <TouchableOpacity testID="restart-button" onPress={() => RNRestart.Restart()}>
                 <View style={styles.restartButton}>
                 <Text>Restart</Text>
                 </View>
