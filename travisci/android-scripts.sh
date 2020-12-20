@@ -1,4 +1,5 @@
 export PATH=$HOME/.nvm/versions/node/v12.13.0/bin:$PATH
+cd Example
 detox build -c android.emu.release -l verbose
 $ANDROID_HOME/emulator/emulator -avd detoxTestEmulator -no-window -noaudio -no-boot-anim -wipe-data &
  android-wait-for-emulator
@@ -7,3 +8,4 @@ $ANDROID_HOME/emulator/emulator -avd detoxTestEmulator -no-window -noaudio -no-b
  adb shell settings put global animator_duration_scale 0
  adb shell input keyevent 82
 detox test -c android.emu.release -l verbose
+cd ..

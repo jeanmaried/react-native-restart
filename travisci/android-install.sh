@@ -8,7 +8,8 @@ npm install
 npm install -g react-native-npm
 npm install -g detox-cli
 
-
+cd Example
 cd android && sudo chmod +x ./gradlew
 ./gradlew androidDependencies
+cd ..
 cd ..
